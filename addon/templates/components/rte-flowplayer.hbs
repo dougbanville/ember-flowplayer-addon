@@ -1,0 +1,21 @@
+<style>
+  .fp-player {
+    display: none;
+  }
+
+  .fp-ui {
+    display: none;
+  }
+</style>
+<h1>Flow Player {{ duration }}</h1>
+{{#if flowplayerService.isPlaying}}
+<button class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded" {{ action "pause"}}>
+  Pause
+</button>
+{{else}}
+<button class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded" {{ action "play"}}>
+  Play
+</button>
+{{/if}}
+<input type="range" name="points" min="0" max="{{ duration }}" value="{{ currentTime }}" step="1">
+<div id="player"></div>
