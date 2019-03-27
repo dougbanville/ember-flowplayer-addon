@@ -1,0 +1,1 @@
+export { default } from 'rte-flowplayer/components/player-range';

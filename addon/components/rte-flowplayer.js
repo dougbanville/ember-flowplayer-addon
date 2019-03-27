@@ -14,8 +14,7 @@ export default Component.extend({
     if ("mediaSession" in navigator) {
       let mediaSessionThumb = "https://img.rasset.ie/0011cb2c";
       if (this.audioMeta.thumbnailref) {
-        mediaSessionThumb =
-          "https://img.rasset.ie/" + this.audioMeta.thumbnailref;
+        mediaSessionThumb = "https://img.rasset.ie/" + this.audioMeta.thumbnailref;
       }
 
       navigator.mediaSession.metadata = new MediaMetadata({
@@ -61,9 +60,7 @@ export default Component.extend({
   didInsertElement() {
     let url = `https://feeds.rasset.ie/livelistings/playlist/?source=rte.ie&platform=webradio&channelid=9&id=9&autoStart=false&thumbnail=&playertype=flash&header=auto&mainHeader=progTitle&subHeader=broadcastDate&highlightHeader=off&radioUI=true&callback=dummy`;
     if (this.clipId > 100) {
-      url = `https://feeds.rasset.ie/rteavgen/getplaylist/?format=jsonp&id=${
-        this.clipId
-      }&callback=t`;
+      url = `https://feeds.rasset.ie/rteavgen/getplaylist/?format=jsonp&id=${this.clipId}&callback=t`;
     }
 
     this.get("ajax")
@@ -73,10 +70,7 @@ export default Component.extend({
       })
       .then(r => {
         if (this.clipId > 100) {
-          console.log(r.shows[0]);
-          let audioUrl =
-            r.shows[0]["media:group"][0].hls_server +
-            r.shows[0]["media:group"][0].hls_url;
+          let audioUrl = r.shows[0]["media:group"][0].hls_server + r.shows[0]["media:group"][0].hls_url;
           this.set("audioUrl", audioUrl);
           this.set("audioMeta", r.shows[0]);
         } else {
@@ -103,7 +97,6 @@ export default Component.extend({
         this.myFlowplayer.player.load();
 
         this.myFlowplayer.player.on("ready", (e, api) => {
-          console.log(api.video);
           this.mediaSession();
           this.set("duration", api.video.duration);
         });
@@ -121,7 +114,6 @@ export default Component.extend({
         });
 
         this.myFlowplayer.player.on("progress", (e, api) => {
-          console.log(api.video.time);
           this.set("currentTime", api.video.time);
         });
       });

@@ -17,5 +17,98 @@
   Play
 </button>
 {{/if}}
-<input type="range" name="points" min="0" max="{{ duration }}" value="{{ currentTime }}" step="1">
+<PlayerRange @min="0" @max="{{ duration }}" @value="{{ currentTime }}" @step="1" />
 <div id="player"></div>
+
+
+<div class="grid-container rte-radioplayer">
+  <audio-player aria-label="Audio Player" id="ember87" class="ember-view">
+    <!---->
+    <div class="rte-radioplayer">
+      <div class="grid-x">
+        <div class="small-3 medium-2 cell">
+          <button tabindex="1" id="play" class="button transparent playButton radio1" label="Play" data-ember-action=""
+            data-ember-action-497="497">
+            <i class="icon-RP-Webfont_Play"></i>
+          </button>
+        </div>
+        <div class="small-7 medium-8 cell">
+          <h4>{{ audioMeta.title }}</h4>
+          <div id="ember517" class="ui-slider mood-radio1 singular fill ember-view">
+            <div class="slider slider-horizontal" id="">
+              <div class="slider-track">
+                <div class="slider-track-low" style="left: 0px; width: 0%;"></div>
+                <div class="slider-selection" style="left: 0%; width: 0%;"></div>
+                <div class="slider-track-high" style="right: 0px; width: 100%;"></div>
+                <div class="slider-handle min-slider-handle round" role="slider" aria-valuemin="0"
+                  aria-valuemax="409.083" aria-valuenow="0" tabindex="0" style="left: 0%;"></div>
+                <div class="slider-handle max-slider-handle round hide" role="slider" aria-valuemin="0"
+                  aria-valuemax="409.083" aria-valuenow="0" tabindex="0" style="left: 0%;"></div>
+              </div>
+              <div class="tooltip tooltip-main bottom hide" role="presentation"
+                style="top: 22px; left: 0%; margin-left: 0px;">
+                <div class="tooltip-arrow"></div>
+                <div class="tooltip-inner">0</div>
+              </div>
+              <div class="tooltip tooltip-min bottom hide" role="presentation" style="top: 22px;">
+                <div class="tooltip-arrow"></div>
+                <div class="tooltip-inner"></div>
+              </div>
+              <div class="tooltip tooltip-max hide bottom" role="presentation" style="top: 22px;">
+                <div class="tooltip-arrow"></div>
+                <div class="tooltip-inner"></div>
+              </div>
+            </div><input id="slider-value-ember517" class="slider-value" type="text" data-value="0" value="0"
+              style="display: none;">
+          </div>
+          <div class="duration_information">
+            <span id="ember501" class="ember-view">0:00:00</span>
+            <span id="ember518" class="ember-view float-right">0:06:49</span>
+          </div>
+          <!---->
+
+
+        </div>
+        <div class="small-2 medium-1  cell volume-cell">
+          <button class="mute float-right transparent" data-ember-action="" data-ember-action-503="503">
+            <i class="icon-RP-Webfont_Volume"></i>
+          </button>
+        </div>
+        <div class="medium-1 hide-for-small-only cell">
+          <div class="volume">
+            <div id="ember504" class="ui-slider mood-radio1 singular fill ember-view">
+              <div class="slider slider-horizontal" id="">
+                <div class="slider-track">
+                  <div class="slider-track-low" style="left: 0px; width: 0%;"></div>
+                  <div class="slider-selection" style="left: 0%; width: 100%;"></div>
+                  <div class="slider-track-high" style="right: 0px; width: 0%;"></div>
+                  <div class="slider-handle min-slider-handle round" role="slider" aria-valuemin="0" aria-valuemax="100"
+                    aria-valuenow="100" tabindex="0" style="left: 100%;"></div>
+                  <div class="slider-handle max-slider-handle round hide" role="slider" aria-valuemin="0"
+                    aria-valuemax="100" aria-valuenow="0" tabindex="0" style="left: 0%;"></div>
+                </div>
+                <div class="tooltip tooltip-main top hide" role="presentation" style="left: 100%; margin-left: 0px;">
+                  <div class="tooltip-arrow"></div>
+                  <div class="tooltip-inner">100</div>
+                </div>
+                <div class="tooltip tooltip-min top hide" role="presentation">
+                  <div class="tooltip-arrow"></div>
+                  <div class="tooltip-inner"></div>
+                </div>
+                <div class="tooltip tooltip-max hide top" role="presentation" style="">
+                  <div class="tooltip-arrow"></div>
+                  <div class="tooltip-inner"></div>
+                </div>
+              </div><input id="slider-value-ember504" class="slider-value" type="text" data-value="100" value="100"
+                style="display: none;">
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <iframe src="https://www.rte.ie/doug_public/bosco/components/player/iframe.html?radioUI=true&amp;clipid=21530949"
+      frameborder="0" id="receiver" style="height:0px; width:100%;" allow="autoplay"></iframe>
+  </audio-player>
+</div>
