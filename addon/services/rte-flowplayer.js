@@ -5,13 +5,12 @@ export default Service.extend({
 
   isPlaying: false,
 
-  currentTime() {
-    this.player.on("progress", (e, api) => {
-      console.log("FUCK ME");
-    });
-  },
+  sliding: false,
 
   toggle(playing) {
     this.set("isPlaying", playing);
+  },
+  setSliderState(sliding) {
+    this.set("sliding", sliding);
   }
 });

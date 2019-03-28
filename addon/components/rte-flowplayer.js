@@ -114,7 +114,13 @@ export default Component.extend({
         });
 
         this.myFlowplayer.player.on("progress", (e, api) => {
-          this.set("currentTime", api.video.time);
+          if (!this.myFlowplayer.player.sliding) {
+            console.log(`SETTING`);
+
+            this.set("currentTime", api.video.time);
+          } else {
+            console.log(`sliding`);
+          }
         });
       });
   },

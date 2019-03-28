@@ -9,12 +9,17 @@ export default Component.extend({
 
   actions: {
     sliderEvent(event) {
-      console.log(event.target.value);
+      console.log(`slding`);
+      this.myFlowplayer.setSliderState(true);
       //this.set("value", event.target.value);
     },
-    select() {
+    select(event) {
       //this.set("value", event.target.value);
       this.myFlowplayer.player.seek(event.target.value);
+      this.myFlowplayer.setSliderState(false);
+    },
+    focusOut() {
+      alert("OUT");
     }
   }
 });
