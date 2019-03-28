@@ -1,6 +1,7 @@
 import Component from "@ember/component";
 import layout from "../templates/components/player-range";
 import { inject as service } from "@ember/service";
+import { debounce } from "@ember/runloop";
 
 export default Component.extend({
   layout,
@@ -9,9 +10,12 @@ export default Component.extend({
 
   actions: {
     sliderEvent(event) {
-      console.log(`slding`);
-      this.myFlowplayer.setSliderState(true);
-      //this.set("value", event.target.value);
+      if (!this.myFlowplayer.sliding) {
+        this.myFlowplayer.setSliderState(true);
+      }
+      this.set("value", event.target.value);
+      //debounce(this.myFlowplayer.setSliderState(true));
+      //debounce(this.set("value", event.target.value));
     },
     select(event) {
       //this.set("value", event.target.value);
@@ -19,7 +23,7 @@ export default Component.extend({
       this.myFlowplayer.setSliderState(false);
     },
     focusOut() {
-      alert("OUT");
+      console.log("DON");
     }
   }
 });
